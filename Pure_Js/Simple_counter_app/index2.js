@@ -1,7 +1,5 @@
 //Solution 2
-// There is no need to wait for style sheets, graphics, or sub frames to finish loading before the DOMContentLoaded event occurs after the main HTML content has been fully loaded and processed. The event is non-cancelable and generic in JavaScript.
 
-// When referencing elements in the body while placing JavaScript in the head of the page, we must handle the DOMContentLoaded event. When a page has loaded completely, a different event called load should be invoked. When DOMContentLoaded is more appropriate, it is a common mistake to use load instead.
 document.addEventListener("DOMContentLoaded", () => {
   const countElement = document.getElementById("count");
   let count = 0;
@@ -19,3 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
     countElement.textContent = count;
   });
 });
+
+// what is DOMContentLoaded?
+
+
+// The DOMContentLoaded event fires when the HTML document has been completely parsed, and all deferred scripts (<script defer src="…"> and <script type="module">) have downloaded and executed. It doesn't wait for other things like images, subframes, and async scripts to finish loading.
+
+// DOMContentLoaded does not wait for stylesheets to load, however deferred scripts do wait for stylesheets, and the DOMContentLoaded event is queued after deferred scripts. Also, scripts which aren't deferred or async (e.g. <script>) will wait for already-parsed stylesheets to load.
+
+// A different event, load, should be used only to detect a fully-loaded page. It is a common mistake to use load where DOMContentLoaded would be more appropriate.
+
+// This event is not cancelable.
