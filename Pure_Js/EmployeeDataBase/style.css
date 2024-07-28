@@ -51,6 +51,9 @@
     text-align: center;
     border-bottom: 1px solid black;
   }
+  .employees__single--edit{
+  text-align: left;
+  }
   /* Initial Structural CSS - END */
   
   /* Render all Employees - START */
